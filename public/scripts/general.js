@@ -21,6 +21,6 @@ document.querySelectorAll("[data-lang]").forEach(el => {
 
 // Visit Count
 const visitCount = document.getElementById("visitCount");
-fetch("https://alexander499.goatcounter.com/counter/all.json")
+fetch("https://alexander499.goatcounter.com/counter//.json")
   .then(r => r.json())
   .then(data => { visitCount.textContent = data.count.toLocaleString(); });
