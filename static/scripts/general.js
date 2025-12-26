@@ -18,3 +18,9 @@ document.querySelectorAll("[data-lang]").forEach(el => {
   for (const k of key.split(".")) { value = value?.[k] || langData["en"]?.[key]; }
   if (value) el.innerHTML = value;
 });
+
+// Visit Count
+const visitCount = document.getElementById("visitCount");
+fetch("https://alexander499.goatcounter.com/counter/all.json")
+  .then(r => r.json())
+  .then(data => { visitCount.textContent = data.count.toLocaleString(); });

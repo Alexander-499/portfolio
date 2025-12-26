@@ -34,19 +34,25 @@ section.articles {
     list-style-type: none;
 
     a {
-      height: 192px;
-      display: flex;
+      max-height: 192px;
+      display: grid;
+      grid-template-columns: 40px auto 1fr;
       gap: 12px;
       text-decoration: none;
 
+      @media (width <= 720px) { grid-template-columns: 40px 1fr; }
+
       time {
+        width: 40px;
         display: flex;
         flex-direction: column;
+        align-items: center;
         color: var(--color-text-secondary);
         text-transform: uppercase;
         font-feature-settings: "tnum" 1;
 
         .month, .day {
+          width: 100%;
           display: flex;
           justify-content: space-between;
         }
@@ -56,24 +62,24 @@ section.articles {
         .day { font-size: 30px; margin-top: -4px; }
       }
 
+      .cover-image { height: 100%; }
+
       img {
-        height: 100%;
+        height: 192px;
         aspect-ratio: 16/9;
         border-radius: 12px;
         border: 1px var(--color-bg-secondary) solid;
+
+        @media (width <= 720px) { height: auto; }
       }
 
       .content {
-        margin-left: 8px;
         flex: 1;
 
-        h2 {
-          font-size: 32px;
-        }
+        @media (width <= 720px) { grid-column: span 2; }
 
-        p {
-          color: var(--color-text-secondary);
-        }
+        h2 { font-size: 32px; }
+        p { color: var(--color-text-secondary); }
       }
     }
   }
