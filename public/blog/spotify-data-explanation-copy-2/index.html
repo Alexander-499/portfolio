@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Alexander499">
+
+
+<title>𝓐𝓵𝓮𝔁𝓪𝓷𝓭𝓮𝓻499 &centerdot; How to display your Spotify Data on your Portfolio</title>
+<link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22>
+  <text y=%221em%22 font-size=%2285%22>❤️‍🔥</text>
+</svg>" type="image/x-icon">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pacifico&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/styles/syntax-highlighting/dark-plus.css">
+<link rel="stylesheet" href="/styles/header.css">
+<link rel="stylesheet" href="/styles/general.css">
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="/styles/footer.css">
+
+<script src="https://open.spotify.com/embed/iframe-api/v1"></script>
+<script defer src="https://unpkg.com/lucide@latest"></script>
+<script defer src="/scripts/lang.js"></script>
+<script defer src="/scripts/script.js"></script>
+
+<script type="module" src="/scripts/shortcodes/shiki.js"></script>
+</head>
+<body>
+  <header id="header">
+  <div>
+    <div class="left"><span>❤️‍🔥</span><a href="/">Alexander499</a></div>
+    <nav>
+      <ul><li><a class="active" href="/blog" data-lang="blog"></a></li></ul>
+    </nav>
+    <div class="right">
+      <span id="languageSelector"></span>
+      <button id="colorThemeButton" onclick="alert('Out of service.')"><i data-lucide="moon"></i></button>
+      <label for="navToggle">
+        <i data-lucide="menu"></i>
+        <input id="navToggle" type="checkbox" checked>
+      </label>
+    </div>
+  </div>
+</header>
+  <main>
+    
+<section class="article">
+  <article>
+    <header>
+      <h1>How to display your Spotify Data on your Portfolio</h1>
+      <p>How to get Spotify data? How to use and display it?</p>
+      <time>07/09/2025</time>
+      <ul class="links">
+        <li><a href="https://www.x.com/intent/post?url=How%20to%20display%20your%20Spotify%20Data%20on%20your%20Portfolio:%20http%3a%2f%2flocalhost%3a1313%2fblog%2fspotify-data-explanation-copy-2%2f" target="_blank" title="Share on X"><img src="https://cdn.simpleicons.org/x/aaa" draggable="false" alt="X Icon"></a></li>
+        <li><a href="mailto:?subject=How%20to%20display%20your%20Spotify%20Data%20on%20your%20Portfolio&body=http%3a%2f%2flocalhost%3a1313%2fblog%2fspotify-data-explanation-copy-2%2f" title="Share via email"><i data-lucide="mail"></i></a></li>
+        <li><a onclick="navigator.clipboard.writeText('http:\/\/localhost:1313\/blog\/spotify-data-explanation-copy-2\/');" title="Copy link"><i data-lucide="link"></i></a></li>
+      </ul>
+      
+      <div class="cover-image"><a href="/assets/images/blog/cover/spotify-data-explanation.png"><img src="/assets/images/blog/cover/spotify-data-explanation.png"></a></div>
+      
+    </header>
+    <div class="content">
+      <h2 id="how-to-get-spotify-data">How to get Spotify Data?</h2>
+<p>The goal of this step is to get all of the Spotify data we want from a generated JSON file.</p>
+<h3 id="creating-a-spotify-developer-app">Creating a Spotify Developer App</h3>
+<ol>
+<li>Head to the <a href="https://developer.spotify.com/dashboard">Spotify Developer Dashboard</a> and log in with your Spotify account (you may need to verify your email).</li>
+<li>Create a new app using the dashboard, give it a name, description, and a <strong>Redirect URI</strong> (I recommend setting any localhost e.g. <a href="http://127.0.0.1:8080">http://127.0.0.1:8080</a>).</li>
+<li>Save the <strong>client ID</strong>, <strong>client secret</strong> and <strong>redirect URI</strong> for later.</li>
+</ol>
+<h3 id="creating-the-project--setting-up-a-server">Creating the Project &amp; setting up a Server</h3>
+<p>We will need a server, in this case <a href="https://www.netlify.com">Netlify</a> (free), with a new project in it to generate and serve the JSON file automatically:</p>
+<ol>
+<li>
+<p><strong>Create a Netlify account</strong> by signing up on their website.</p>
+</li>
+<li>
+<p><strong>Create a new project</strong> (folder) on your PC which will be generating the JSON</p>
+</li>
+<li>
+<p><strong>Open it in a code editor</strong> (e.g. <a href="https://code.visualstudio.com">Visual Studio Code</a>) and run the following commands in <strong>Powershell</strong> in the created folder (make sure <a href="https://nodejs.org">Node.js</a> is installed before):</p>
+<div class="shiki-block" data-lang="shell">
+  <div class="code-header">
+    <span class="language-label" data-label="plaintext"><i data-lucide="code"></i></span>
+    <button class="copy-button"><i data-lucide="copy"></i></button>
+  </div>
+  <textarea class="shiki-source" hidden>
+   npm install -g netlify-cli # Install Netlify CLI globally
+   npm init -y # Initialize Node project
+   netlify init # Initialize Netlify project (log in with your Netlify account in the opened browser and create & configure a new site)
+   mkdir functions # Add functions folder (here will be the code which will generate the JSON)
+   </textarea>
+</div>
+
+<style>
+  .shiki-block {
+    background-color: var(--color-bg-primary2);
+    border: 1px var(--color-bg-secondary) solid;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 1rem 0;
+
+    .code-header {
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px var(--color-bg-secondary) solid;
+
+      svg {
+        height: 20px;
+        stroke: gray;
+      }
+
+      &::before {
+        height: 12px;
+        width: 12px;
+        content: "";
+        display: inline-block;
+        background-color: #ff5f56;
+        border-radius: 50%;
+        margin-left: 12px;
+        box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
+      }
+
+      span {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        &::after {
+          content: attr(data-label);
+          font-size: 14px;
+          font-weight: 600;
+          color: gray;
+        }
+      }
+
+      button {
+        height: 28px;
+        width: 28px;
+        background-color: transparent;
+        border: none;
+        margin: 0 4px;
+        cursor: pointer;
+        transition-duration: 200ms;
+        &:active { scale: 0.8; }
+      }
+    }
+
+    pre, code { background-color: var(--color-bg-primary2) !important; }
+
+    code {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.375;
+      padding: 8px 4px !important;
+      counter-reset: code;
+
+      > span {
+        white-space: pre-wrap;
+
+        &::before {
+          min-width: 22px;
+          display: inline-block;
+          text-align: right;
+          content: counter(code);
+          counter-increment: code;
+          color: var(--color-text-tertiary);
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+</style>
+</li>
+<li>
+<p>Create a new JavaScript file in <code>functions</code> which I called  <code>get-spotify-data.js</code>.</p>
+</li>
+<li>
+<p>To tell Netlify where the functions live you need to specify it in <code>netlify.toml</code> (you may need to create this file if it doesn&rsquo;t already exist):</p>
+<div class="shiki-block" data-lang="toml">
+  <div class="code-header">
+    <span class="language-label" data-label="plaintext"><i data-lucide="code"></i></span>
+    <button class="copy-button"><i data-lucide="copy"></i></button>
+  </div>
+  <textarea class="shiki-source" hidden>
+[build]
+  functions = &#34;functions&#34;
+   </textarea>
+</div>
+
+<style>
+  .shiki-block {
+    background-color: var(--color-bg-primary2);
+    border: 1px var(--color-bg-secondary) solid;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 1rem 0;
+
+    .code-header {
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px var(--color-bg-secondary) solid;
+
+      svg {
+        height: 20px;
+        stroke: gray;
+      }
+
+      &::before {
+        height: 12px;
+        width: 12px;
+        content: "";
+        display: inline-block;
+        background-color: #ff5f56;
+        border-radius: 50%;
+        margin-left: 12px;
+        box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
+      }
+
+      span {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        &::after {
+          content: attr(data-label);
+          font-size: 14px;
+          font-weight: 600;
+          color: gray;
+        }
+      }
+
+      button {
+        height: 28px;
+        width: 28px;
+        background-color: transparent;
+        border: none;
+        margin: 0 4px;
+        cursor: pointer;
+        transition-duration: 200ms;
+        &:active { scale: 0.8; }
+      }
+    }
+
+    pre, code { background-color: var(--color-bg-primary2) !important; }
+
+    code {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.375;
+      padding: 8px 4px !important;
+      counter-reset: code;
+
+      > span {
+        white-space: pre-wrap;
+
+        &::before {
+          min-width: 22px;
+          display: inline-block;
+          text-align: right;
+          content: counter(code);
+          counter-increment: code;
+          color: var(--color-text-tertiary);
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+</style>
+</li>
+<li>
+<p>Before you can code the <code>functions/get-spotify-data.js</code> you must know the client ID and client secret, which we already got. Additionally whe need to generate a refresh token. That requires a few steps though:</p>
+<ol>
+<li>
+<p>Spotify needs you to visit a URL to grant access to its API. The URL I used looks like this (remember to add your client ID and redirect URI):</p>
+<div class="shiki-block" data-lang="text">
+  <div class="code-header">
+    <span class="language-label" data-label="plaintext"><i data-lucide="code"></i></span>
+    <button class="copy-button"><i data-lucide="copy"></i></button>
+  </div>
+  <textarea class="shiki-source" hidden>
+https://accounts.spotify.com/authorize
+?client_id=YOUR_CLIENT_ID
+&response_type=code
+&redirect_uri=YOUR_REDIRECT_URI
+&scope=user-top-read%20user-library-read%20playlist-read-private%20user-read-recently-played%20user-follow-read
+      </textarea>
+</div>
+
+<style>
+  .shiki-block {
+    background-color: var(--color-bg-primary2);
+    border: 1px var(--color-bg-secondary) solid;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 1rem 0;
+
+    .code-header {
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px var(--color-bg-secondary) solid;
+
+      svg {
+        height: 20px;
+        stroke: gray;
+      }
+
+      &::before {
+        height: 12px;
+        width: 12px;
+        content: "";
+        display: inline-block;
+        background-color: #ff5f56;
+        border-radius: 50%;
+        margin-left: 12px;
+        box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
+      }
+
+      span {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        &::after {
+          content: attr(data-label);
+          font-size: 14px;
+          font-weight: 600;
+          color: gray;
+        }
+      }
+
+      button {
+        height: 28px;
+        width: 28px;
+        background-color: transparent;
+        border: none;
+        margin: 0 4px;
+        cursor: pointer;
+        transition-duration: 200ms;
+        &:active { scale: 0.8; }
+      }
+    }
+
+    pre, code { background-color: var(--color-bg-primary2) !important; }
+
+    code {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.375;
+      padding: 8px 4px !important;
+      counter-reset: code;
+
+      > span {
+        white-space: pre-wrap;
+
+        &::before {
+          min-width: 22px;
+          display: inline-block;
+          text-align: right;
+          content: counter(code);
+          counter-increment: code;
+          color: var(--color-text-tertiary);
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+</style>
+<p>You can change the scopes by adding different keywords to <code>scope</code> separated by spaces (<code>%20</code>). <em>Scopes provide Spotify users using third-party apps the confidence that only the information they choose to share will be shared, and nothing more.</em> You can find a list of all scopes on the <a href="https://developer.spotify.com/documentation/web-api/concepts/scopes">Spotify Developer Documentation</a>.</p>
+</li>
+<li>
+<p>After visiting the url and granting access it will change to something like <code>http://127.0.0.1:8888/?code=YOUR_CODE</code>. Save this code for later as well.</p>
+</li>
+<li>
+<p>The final step here is to get your refresh token is to create a Node script which will generate it for you:</p>
+<ol>
+<li>
+<p>Create a new folder anywhere.</p>
+</li>
+<li>
+<p>Run <code>npm init -y</code> and <code>npm install node-fetch@2</code>. This will create a <code>package.json</code> and install <code>node-fetch</code>.</p>
+</li>
+<li>
+<p>Create a new JavaScript file in the folder (e.g. <code>get-refresh-token.js</code>) and add the following code (remember to add your client ID, client secret, redirect uri and code)</p>
+<div class="shiki-block" data-lang="javascript">
+  <div class="code-header">
+    <span class="language-label" data-label="plaintext"><i data-lucide="code"></i></span>
+    <button class="copy-button"><i data-lucide="copy"></i></button>
+  </div>
+  <textarea class="shiki-source" hidden>
+const fetch = require(&#34;node-fetch&#34;);
+const client_id = &#34;YOUR_CLIENT_ID&#34;;
+const client_secret = &#34;YOUR_CLIENT_SECRET&#34;;
+const redirect_uri = &#34;YOUR_REDIRECT_URI&#34;;
+const code = &#34;YOUR_CODE&#34;;
+
+(async () =&gt; {
+  const res = await fetch(&#34;https://accounts.spotify.com/api/token&#34;, {
+    method: &#34;POST&#34;,
+    headers: {
+      &#34;Authorization&#34;: &#34;Basic &#34; &#43; Buffer.from(client_id &#43; &#34;:&#34; &#43; client_secret).toString(&#34;base64&#34;),
+      &#34;Content-Type&#34;: &#34;application/x-www-form-urlencoded&#34;
+    },
+    body: new URLSearchParams({
+      grant_type: &#34;authorization_code&#34;,
+      code: code,
+      redirect_uri: redirect_uri
+    })
+  });
+
+  const data = await res.json();
+  console.log(data);
+})();
+         </textarea>
+</div>
+
+<style>
+  .shiki-block {
+    background-color: var(--color-bg-primary2);
+    border: 1px var(--color-bg-secondary) solid;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 1rem 0;
+
+    .code-header {
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px var(--color-bg-secondary) solid;
+
+      svg {
+        height: 20px;
+        stroke: gray;
+      }
+
+      &::before {
+        height: 12px;
+        width: 12px;
+        content: "";
+        display: inline-block;
+        background-color: #ff5f56;
+        border-radius: 50%;
+        margin-left: 12px;
+        box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
+      }
+
+      span {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        &::after {
+          content: attr(data-label);
+          font-size: 14px;
+          font-weight: 600;
+          color: gray;
+        }
+      }
+
+      button {
+        height: 28px;
+        width: 28px;
+        background-color: transparent;
+        border: none;
+        margin: 0 4px;
+        cursor: pointer;
+        transition-duration: 200ms;
+        &:active { scale: 0.8; }
+      }
+    }
+
+    pre, code { background-color: var(--color-bg-primary2) !important; }
+
+    code {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.375;
+      padding: 8px 4px !important;
+      counter-reset: code;
+
+      > span {
+        white-space: pre-wrap;
+
+        &::before {
+          min-width: 22px;
+          display: inline-block;
+          text-align: right;
+          content: counter(code);
+          counter-increment: code;
+          color: var(--color-text-tertiary);
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+</style>
+<p>After running the code using <code>node get-refresh-token.js</code> it will output a small peace of JSON which includes the wanted refresh token. Save it also for later from <code>refresh_token</code> from the JSON.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Finally we can add the 3 secrets to our Netlify project. Go to <strong>your project</strong> → <strong>Project configuration</strong> → <strong>Environment variables</strong> → <strong>Add a variable</strong> (add a single variable) for each secret. Give each one a proper name using the <strong>SCREAMING_SNAKE_CASE</strong> and check <strong>Contains secret values</strong>.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Now you can code (copy) the <code>functions/get-spotify-data.js</code>. This is mine which you can build upon:</p>
+<div class="shiki-block" data-lang="javascript">
+  <div class="code-header">
+    <span class="language-label" data-label="plaintext"><i data-lucide="code"></i></span>
+    <button class="copy-button"><i data-lucide="copy"></i></button>
+  </div>
+  <textarea class="shiki-source" hidden>
+const fetch = require(&#34;node-fetch&#34;);
+exports.handler = async function(event, context) {
+  const client_id = process.env.SPOTIFY_CLIENT_ID;
+  const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
+  const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN;
+
+  const tokenRes = await fetch(&#34;https://accounts.spotify.com/api/token&#34;, {
+    method: &#34;POST&#34;,
+    headers: {
+      &#34;Authorization&#34;: &#34;Basic &#34; &#43; Buffer.from(client_id &#43; &#34;:&#34; &#43; client_secret).toString(&#34;base64&#34;),
+      &#34;Content-Type&#34;: &#34;application/x-www-form-urlencoded&#34;
+    },
+    body: new URLSearchParams({
+      grant_type: &#34;refresh_token&#34;,
+      refresh_token: refresh_token
+    })
+  });
+
+  const tokenData = await tokenRes.json();
+  const access_token = tokenData.access_token;
+
+  const headers = { &#34;Authorization&#34;: `Bearer ${access_token}` };
+
+  // Fetch top tracks
+  const [topTracksShortTerm, topTracksMediumTerm, topTracksLongTerm] = await Promise.all([
+    fetch(&#34;https://api.spotify.com/v1/me/top/tracks?limit=30&time_range=short_term&#34;, { headers }).then(r =&gt; r.json()),
+    fetch(&#34;https://api.spotify.com/v1/me/top/tracks?limit=30&time_range=medium_term&#34;, { headers }).then(r =&gt; r.json()),
+    fetch(&#34;https://api.spotify.com/v1/me/top/tracks?limit=30&time_range=long_term&#34;, { headers }).then(r =&gt; r.json())
+  ]);
+
+  // Fetch top artists
+  const [topArtistShortTerm, topArtistMediumTerm, topArtistLongTerm] = await Promise.all([
+    fetch(&#34;https://api.spotify.com/v1/me/top/artists?limit=10&time_range=short_term&#34;, { headers }).then(r =&gt; r.json()),
+    fetch(&#34;https://api.spotify.com/v1/me/top/artists?limit=10&time_range=medium_term&#34;, { headers }).then(r =&gt; r.json()),
+    fetch(&#34;https://api.spotify.com/v1/me/top/artists?limit=10&time_range=long_term&#34;, { headers }).then(r =&gt; r.json())
+  ]);
+
+  // Fetch saved tracks, playlists, recently played, and followed artists
+  const [savedTracks, playlists, recentlyPlayed, followedArtists] = await Promise.all([
+    fetch(&#34;https://api.spotify.com/v1/me/tracks?limit=30&#34;, { headers }).then(r =&gt; r.json()),
+    fetch(&#34;https://api.spotify.com/v1/me/playlists?limit=50&#34;, { headers }).then(r =&gt; r.json()),
+    fetch(&#34;https://api.spotify.com/v1/me/player/recently-played?limit=30&#34;, { headers }).then(r =&gt; r.json()),
+    fetch(&#34;https://api.spotify.com/v1/me/following?type=artist&limit=10&#34;, { headers }).then(r =&gt; r.json())
+  ]);
+
+  return {
+    statusCode: 200,
+    headers: {
+      &#34;Access-Control-Allow-Origin&#34;: &#34;*&#34;,
+      &#34;Access-Control-Allow-Headers&#34;: &#34;Content-Type&#34;
+    },
+    body: JSON.stringify({ topTracksShortTerm, topTracksMediumTerm, topTracksLongTerm, topArtistShortTerm, topArtistMediumTerm, topArtistLongTerm,    savedTracks, playlists, recentlyPlayed, followedArtists })
+  };
+};
+   </textarea>
+</div>
+
+<style>
+  .shiki-block {
+    background-color: var(--color-bg-primary2);
+    border: 1px var(--color-bg-secondary) solid;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 1rem 0;
+
+    .code-header {
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px var(--color-bg-secondary) solid;
+
+      svg {
+        height: 20px;
+        stroke: gray;
+      }
+
+      &::before {
+        height: 12px;
+        width: 12px;
+        content: "";
+        display: inline-block;
+        background-color: #ff5f56;
+        border-radius: 50%;
+        margin-left: 12px;
+        box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
+      }
+
+      span {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        &::after {
+          content: attr(data-label);
+          font-size: 14px;
+          font-weight: 600;
+          color: gray;
+        }
+      }
+
+      button {
+        height: 28px;
+        width: 28px;
+        background-color: transparent;
+        border: none;
+        margin: 0 4px;
+        cursor: pointer;
+        transition-duration: 200ms;
+        &:active { scale: 0.8; }
+      }
+    }
+
+    pre, code { background-color: var(--color-bg-primary2) !important; }
+
+    code {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.375;
+      padding: 8px 4px !important;
+      counter-reset: code;
+
+      > span {
+        white-space: pre-wrap;
+
+        &::before {
+          min-width: 22px;
+          display: inline-block;
+          text-align: right;
+          content: counter(code);
+          counter-increment: code;
+          color: var(--color-text-tertiary);
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+</style>
+<p>Mine for example will generate up to:</p>
+<ul>
+<li>30 top songs (short, medium, long term)</li>
+<li>10 top artists (short, medium, long term)</li>
+<li>30 last saved tracks</li>
+<li>50 saved playlist</li>
+<li>30 recently played songs</li>
+<li>10 followed artists</li>
+</ul>
+</li>
+<li>
+<p>Now finally you can run <code>netlify deploy --prod</code> to push everything to Netlify (if you change anything run it again). Now the JSON will be served on something like <code>https://your-project.netlify.app/.netlify/functions/get-spotify-data</code> which you can use later for displaying the content.</p>
+</li>
+</ol>
+<h2 id="how-to-use-and-display-it">How to use and display it?</h2>
+<p><del>Now I will show you what I did with the spotify data: Displaying specific data as interactive UI on my portfolio website. I will show it using only plain frontend HTML and JavaScript.</del> Ask ChatGPT lol (Maybe I will finish this post sometime).</p>
+
+    </div>
+  </article>
+</section>
+
+  </main>
+  <footer id="footer">
+  <div>
+    <div class="left">
+      &copy; 2025 Alexander499 - ❤️‍🔥 <a href>Alexander499</a>
+    </div>
+    <div class="right">
+      <ul>
+        <li><a href="mailto:alexander499gg@gmail.de"><img src="https://cdn.simpleicons.org/gmail/a6adc8" alt></a></li>
+        <li><a href="https://www.youtube.com/@alexander499_"><img src="https://cdn.simpleicons.org/youtube/a6adc8" alt></a></li>
+        <li><a href="https://www.tiktok.com/@ac.alexander499"><img src="https://cdn.simpleicons.org/tiktok/a6adc8" alt></a></li>
+        <li><a href="https://discord.gg/zB2PyHYu4T"><img src="https://cdn.simpleicons.org/discord/a6adc8" alt></a></li>
+        <li><a href="https://scratch.mit.edu/users/Alexander499"><img src="https://cdn.simpleicons.org/scratch/a6adc8" alt></a></li>
+        <li><a href="https://www.reddit.com/user/Alexander499_"><img src="https://cdn.simpleicons.org/reddit/a6adc8" alt></a></li>
+        <li><a href="https://www.twitch.tv/alexander499tv"><img src="https://cdn.simpleicons.org/twitch/a6adc8" alt></a></li>
+        <li><a href="https://twitter.com/Alexander499_"><img src="https://cdn.simpleicons.org/x/a6adc8" alt></a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<div class="shiki-block" data-lang="{{ .Get "lang" | default "text" }}">
+  <div class="code-header">
+    <span class="language-label" data-label="plaintext"><i data-lucide="code"></i></span>
+    <button class="copy-button"><i data-lucide="copy"></i></button>
+  </div>
+  <textarea class="source" hidden>{{ .Inner }}</textarea>
+</div>

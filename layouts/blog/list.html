@@ -1,0 +1,30 @@
+{{ define "main" }}
+<section class="articles">
+  <div class="header">
+    <h1>Articles</h1>
+    <a href="/blog/index.xml"><i data-lucide="rss"></i></a>
+  </div>
+  <ul class="blog-list">
+    {{ range .Pages }}
+      <li>
+        <a href="{{ .RelPermalink }}">
+          <div>
+            <time datetime="{{ .Date.Format "2006-01-02" }}">
+              <span class="year">{{ .Date.Format "2006" }}</span>
+              <span class="month">{{ range $char := split (.Date.Format "Jan") "" }}{{ if ne $char "" }}<span>{{ $char }}</span>{{ end }}{{ end }}</span>
+              <span class="day">{{ range $char := split (.Date.Format "02") "" }}{{ if ne $char "" }}<span>{{ $char }}</span>{{ end }}{{ end }}</span>
+            </time>
+          </div>
+          {{ with .Params.image }}
+            <div><img src="{{ . }}"></div>
+          {{ end }}
+          <div class="content">
+            <h2>{{ .Title }}</h2>
+            {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
+          </div>
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}

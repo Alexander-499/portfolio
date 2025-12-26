@@ -1,0 +1,22 @@
+{{ define "main" }}
+<section class="article">
+  <article>
+    <header>
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
+      <time>{{ .Date.Format "02/01/2006" }}</time>
+      <ul class="links">
+        <li><a href="https://www.x.com/intent/post?url={{ .Title }}:%20{{ .Permalink }}" target="_blank" title="Share on X"><img src="https://cdn.simpleicons.org/x/aaa" draggable="false" alt="X Icon"></a></li>
+        <li><a href="mailto:?subject={{ .Title }}&body={{ .Permalink }}" title="Share via email"><i data-lucide="mail"></i></a></li>
+        <li><a onclick="navigator.clipboard.writeText('{{ .Permalink }}');" title="Copy link"><i data-lucide="link"></i></a></li>
+      </ul>
+      {{ with .Params.image }}
+      <div class="cover-image"><a href="{{ . }}"><img src="{{ . }}"></a></div>
+      {{ end }}
+    </header>
+    <div class="content">
+      {{ .Content }}
+    </div>
+  </article>
+</section>
+{{ end }}

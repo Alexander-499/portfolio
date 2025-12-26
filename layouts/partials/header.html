@@ -1,0 +1,19 @@
+<header id="header">
+  <div>
+    <div class="left"><span>❤️‍🔥</span><a class="{{ if .IsHome }}active{{ end }}" href="/">Alexander499</a></div>
+    <nav>
+      <ul>
+        <li class="home"><a class="{{ if .IsHome }}active{{ end }}" href="/" data-lang="home"></a></li>
+        <li><a class="{{ if eq .Section "blog" }}active{{ end }}" href="/blog" data-lang="blog"></a></li>
+      </ul>
+    </nav>
+    <div class="right">
+      <span id="languageSelector"></span>
+      <button id="colorThemeButton" onclick="alert('Out of service.')"><i data-lucide="moon"></i></button>
+      <label for="navToggle">
+        <i data-lucide="menu"></i>
+        <input id="navToggle" type="checkbox">
+      </label>
+    </div>
+  </div>
+</header>

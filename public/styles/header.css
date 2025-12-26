@@ -1,0 +1,112 @@
+body > header {
+  width: 100%;
+  position: fixed;
+  inset: 0 0 auto 0;
+  display: flex;
+  justify-content: center;
+  background-color: #1c1c1c44;
+  border-bottom: 1px #3338 solid;
+  backdrop-filter: blur(4px);
+  user-select: none;
+  z-index: 100;
+  transition-duration: 500ms;
+
+  > div {
+    height: 48px;
+    width: min(100vw, 1280px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+
+    @media (min-width: 840px) { div.left, div.right { min-width: 128px; } }
+
+    a { text-decoration: none; }
+
+    > div {
+      display: flex;
+      align-items: center;
+    }
+
+    div.left {
+      font-size: 24px;
+
+      a {
+        font-family: Pacifico;
+        @media (width <= 360px) { display: none; }
+      }
+
+      span {
+        font-size: 36px;
+        transition: scale 500ms;
+        &:hover { scale: -1 1; }
+      }
+    }
+
+    nav {
+      padding-left: 16px;
+      margin-right: auto;
+
+      ul {
+        display: flex;
+        gap: 8px;
+        list-style-type: none;
+        font-size: 17px;
+        font-weight: 700;
+        text-transform: uppercase;
+
+        li {
+          padding: 0 12px;
+
+          a {
+            vertical-align: sub;
+            transition: color 200ms;
+            &.active { color: cornflowerblue; }
+          }
+        }
+      }
+    }
+
+    div.right {
+      color: var(--color-text-secondary);
+      justify-content: flex-end;
+
+      > span {
+        cursor: pointer;
+        margin-right: 8px;
+      }
+
+      button, label {
+        display: flex;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+
+        svg { stroke: var(--color-text-secondary); }
+        input { display: none; }
+      }
+
+      label[for="navToggle"] { display: none; }
+    }
+
+    @media (width <= 640px) {
+      nav {
+        height: 100vh;
+        position: absolute;
+        inset: 100% 0 auto 100%;
+        background: var(--color-bg-secondary);
+        flex-direction: column;
+        padding: 24px 0;
+        overflow: hidden;
+        transition: inset 200ms;
+
+        li { padding: 0; }
+        li a { font-size: 20px; padding: 12px; }
+      }
+
+      label[for="navToggle"] { display: flex !important; }
+      &:has(#navToggle:checked) nav { inset: 100% 0 auto 0; }
+    }
+  }
+}

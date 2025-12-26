@@ -1,0 +1,35 @@
+<!-- Meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Alexander499">
+
+<!-- Tab -->
+<title>𝓐𝓵𝓮𝔁𝓪𝓷𝓭𝓮𝓻499{{ if not .IsHome }} &centerdot; {{ .Title }}{{ end }}</title>
+<link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22>
+  <text y=%221em%22 font-size=%2285%22>❤️‍🔥</text>
+</svg>" type="image/x-icon">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pacifico&display=swap" rel="stylesheet">
+
+<!-- Imports (Styles, Scripts) -->
+<link rel="stylesheet" href="/styles/syntax-highlighting/dark-plus.css">
+<link rel="stylesheet" href="/styles/general.css">
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="/styles/partials/header.css">
+<link rel="stylesheet" href="/styles/partials/footer.css">
+<link rel="stylesheet" href="/styles/pages/home.css">
+<link rel="stylesheet" href="/styles/pages/blog.css">
+<link rel="stylesheet" href="/styles/shortcodes.css">
+
+<script src="https://open.spotify.com/embed/iframe-api/v1"></script>
+<script defer src="https://unpkg.com/lucide@latest"></script>
+<script defer src="/scripts/lang.js"></script>
+<script defer src="/scripts/general.js"></script>
+{{ if .IsHome }}<script defer src="/scripts/home.js"></script>{{ end }}
+{{ if eq .Section "blog" }}
+<script defer src="/scripts/blog.js"></script>
+<script type="module" src="/scripts/shortcodes/shiki.js"></script>
+{{ end }}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on My New Hugo Site</title>
+    <link>http://localhost:1313/blog/</link>
+    <description>Recent content in Blogs on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 07 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to display your Spotify Data on your Portfolio</title>
+      <link>http://localhost:1313/blog/spotify-data-explanation/</link>
+      <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/spotify-data-explanation/</guid>
+      <description>&lt;h2 id=&#34;how-to-get-spotify-data&#34;&gt;How to get Spotify Data?&lt;/h2&gt;&#xA;&lt;p&gt;The goal of this step is to get all of the Spotify data we want from a generated JSON file.&lt;/p&gt;&#xA;&lt;h3 id=&#34;creating-a-spotify-developer-app&#34;&gt;Creating a Spotify Developer App&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Head to the &lt;a href=&#34;https://developer.spotify.com/dashboard&#34;&gt;Spotify Developer Dashboard&lt;/a&gt; and log in with your Spotify account (you may need to verify your email).&lt;/li&gt;&#xA;&lt;li&gt;Create a new app using the dashboard, give it a name, description, and a &lt;strong&gt;Redirect URI&lt;/strong&gt; (I recommend setting any localhost e.g. &lt;a href=&#34;http://127.0.0.1:8080&#34;&gt;http://127.0.0.1:8080&lt;/a&gt;).&lt;/li&gt;&#xA;&lt;li&gt;Save the &lt;strong&gt;client ID&lt;/strong&gt;, &lt;strong&gt;client secret&lt;/strong&gt; and &lt;strong&gt;redirect URI&lt;/strong&gt; for later.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;creating-the-project--setting-up-a-server&#34;&gt;Creating the Project &amp;amp; setting up a Server&lt;/h3&gt;&#xA;&lt;p&gt;We will need a server, in this case &lt;a href=&#34;https://www.netlify.com&#34;&gt;Netlify&lt;/a&gt; (free), with a new project in it to generate and serve the JSON file automatically: First &lt;strong&gt;create a Netlify account&lt;/strong&gt; by signing up on their website. After that you should &lt;strong&gt;create a new project&lt;/strong&gt; (folder) on your PC which will be generating the JSON and &lt;strong&gt;open it in a code editor&lt;/strong&gt; and run the following commands in &lt;strong&gt;Powershell&lt;/strong&gt; in the created folder (make sure &lt;a href=&#34;https://nodejs.org&#34;&gt;Node.js&lt;/a&gt; is installed before):&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

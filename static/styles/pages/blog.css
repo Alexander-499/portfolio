@@ -1,0 +1,176 @@
+section.articles {
+  flex-direction: column;
+  gap: 8px;
+  h1 { font-size: 48px; }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    a {
+      height: 32px;
+      width: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--color-bg-secondary);
+      border-radius: 50%;
+      padding: 4px;
+      cursor: pointer;
+      transition-duration: 200ms;
+
+      &:hover { background-color: color-mix(in srgb, var(--color-bg-secondary), transparent 50%); }
+      &:active { scale: 0.9; }
+      svg { stroke: var(--color-text-secondary); }
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style-type: none;
+
+    a {
+      height: 192px;
+      display: flex;
+      gap: 12px;
+      text-decoration: none;
+
+      time {
+        display: flex;
+        flex-direction: column;
+        color: var(--color-text-secondary);
+        text-transform: uppercase;
+        font-feature-settings: "tnum" 1;
+
+        .month, .day {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .year { font-size: 15px; }
+        .month { font-size: 18px; }
+        .day { font-size: 30px; margin-top: -4px; }
+      }
+
+      img {
+        height: 100%;
+        aspect-ratio: 16/9;
+        border-radius: 12px;
+        border: 1px var(--color-bg-secondary) solid;
+      }
+
+      .content {
+        margin-left: 8px;
+        flex: 1;
+
+        h2 {
+          font-size: 32px;
+        }
+
+        p {
+          color: var(--color-text-secondary);
+        }
+      }
+    }
+  }
+}
+
+section.article {
+  max-width: 720px;
+
+  article, header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  header {
+    h1 { view-transition-name: article-title; }
+    p { view-transition-name: article-description ; }
+    p, time { color: var(--color-text-secondary); }
+
+    ul.links {
+      display: flex;
+      gap: 8px;
+      list-style-type: none;
+
+      a {
+        height: 32px;
+        width: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--color-bg-secondary);
+        border-radius: 50%;
+        padding: 4px;
+        cursor: pointer;
+        transition-duration: 200ms;
+
+        &:hover { background-color: color-mix(in srgb, var(--color-bg-secondary), transparent 50%); }
+        &:active { scale: 0.9; }
+        img { height: 24px; }
+        svg { stroke: var(--color-text-secondary); }
+      }
+    }
+
+    div.cover-image {
+      border-radius: 16px;
+      border: 1px var(--color-bg-secondary) solid;
+      overflow: hidden;
+      view-transition-name: article-image;
+
+      img {
+        display: flex;
+        cursor: zoom-in;
+      }
+    }
+  }
+
+  .content {
+    margin-top: 8px;
+
+    > h1, > h2, > h3, > p, > blockquote, > ol, > ul, > table, pre:not([style]), > div:has(> pre), > dl { margin-bottom: 1rem; }
+    p, em, li, del { color: var(--color-text-secondary); }
+    p, ol, ul, li { line-height: 1.5; }
+    blockquote {
+      display: flex;
+      gap: 4px;
+
+      &::before {
+        height: 100;
+        width: 2px;
+        content: "";
+        background-color: var(--color-text-secondary);
+        border-radius: 2px;
+      }
+    }
+    ol, ul:not(:has(input[type=checkbox])) { padding-left: 2rem; }
+    code:not(:has(span)) {
+      border-radius: 4px;
+      padding: 2px 4px;
+      line-height: 1.375;
+      background-color: var(--color-bg-secondary);
+    }
+    hr {
+      border: none;
+      border-bottom: 1px var(--color-bg-secondary) solid;
+      margin-bottom: 1rem;
+    }
+    a { color: cornflowerblue; }
+    img, table { border-radius: 12px; }
+    p:has(> img) {
+      display: flex;
+      justify-content: center;
+    }
+    table { border: 1px var(--border) solid; }
+    table { padding: 8px; }
+    > pre, > div > pre { padding: 8px; }
+    > div > pre > code { padding: 0; }
+    dl dt { font-weight: bold; }
+    dl dd { padding-left: 1rem; }
+  }
+}

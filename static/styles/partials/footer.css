@@ -1,0 +1,33 @@
+body > footer {
+  display: flex;
+  justify-content: center;
+
+  > div {
+    width: 75%;
+    max-width: 1920px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    color: #a6adc8;
+    background-color: #0c0c0c;
+    font-family: Consolas;
+    border: 1px #3338 solid;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px;
+
+    a { color: #a6adc8; }
+
+    div.right ul {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      list-style-type: none;
+
+      li {
+        img { height: 20px; }
+      }
+    }
+  }
+}
