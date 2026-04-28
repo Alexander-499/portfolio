@@ -57,7 +57,7 @@ watch(() => route.params.slug, async () => {
         <span class="divider">{{ "&nbsp;".repeat(24) }}</span>
         <div v-if="article.meta.image" class="cover-image">
           <a :href="article.meta.image">
-            <img :style="{ viewTransitionName: `blog-article-image-${article.slug}`}" :src="`/${article.meta.image}`">
+            <img :style="{ viewTransitionName: `blog-article-image-${article.slug}`}" :src="article.meta.image">
           </a>
         </div>
       </header>

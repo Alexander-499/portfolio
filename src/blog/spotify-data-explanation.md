@@ -2,7 +2,7 @@
 date: "2025-09-07"
 draft: false
 title: "How to display your Spotify Data on your Portfolio"
-image: "/public/assets/images/blog/covers/spotify-data-explanation.png"
+image: "/assets/images/blog/covers/spotify-data-explanation.png"
 description: "How to get Spotify data? How to use and display it?"
 ---
 

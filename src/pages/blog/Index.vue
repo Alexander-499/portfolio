@@ -25,7 +25,7 @@ const publishedArticles = blogArticles.filter(a => !a.meta.draft);
             </time>
           </div>
           <div v-if="article.meta.image" class="cover-image">
-            <img :style="{ viewTransitionName: `blog-article-image-${article.slug}` }" :src="`/${article.meta.image}`">
+            <img :style="{ viewTransitionName: `blog-article-image-${article.slug}` }" :src="article.meta.image">
           </div>
           <div class="content">
             <h2 :style="{ viewTransitionName: `blog-article-title-${article.slug}` }">{{ article.meta.title }}</h2>
