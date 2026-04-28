@@ -6,7 +6,7 @@ const langData = {
     "blog": "Blog",
     "commissions": "Commissions",
     "location": "Germany",
-    "aboutText": "I'm a <em>teenage</em> developer, designer, gamer – basically doing much on my PC. I've been coding websites, apps and programs since <time datetime='2023'>2023</time>. My <b>goal</b> is to design <em>beautiful</em> and <em>aesthetically</em> pleasing user interfaces, with a focus on <em>front-end</em> development and a <em>design-driven</em> approach.",
+    "aboutText": "I'm a <em>teenage</em> developer and have been coding websites, apps and programs since <time datetime='2023'>2023</time>. <b>My goal</b> is to design <em>beautiful</em> and <em>aesthetically pleasing</em> user interfaces, with a focus on <em>front-end</em> development and a <em>design-driven</em> approach. I created a mobile application called <a href='https://play.google.com/store/apps/details?id=com.alexander499.zpeedometer' target='_blank'>Zpeedometer</a>.",
     "stack": "What I've worked with",
     "totalCodingTime": "Total Coding Time*:",
     "projectsTitle": "Selected Projects",

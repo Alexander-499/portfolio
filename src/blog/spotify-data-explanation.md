@@ -7,7 +7,7 @@ description: "How to get Spotify data? How to use and display it?"
 ---
 
 <Aside type="warning" title="Spotify Premium is now needed for the API">
-  <p>Since <time datetime="2026-02-11">11 February 2026</time>, access to any part of the Spotify API requires Spotify Premium (of course for developers only), along with some other limitations, as stated in this <a href="https://developer.spotify.com/blog/2026-02-06-update-on-developer-access-and-platform-security">update on developer access and platform security</a>.</p>
+  <p>Since <time datetime="2026-02-11">11 February 2026</time>, access to any part of the Spotify API requires Spotify Premium (of course, only for developers), along with some other limitations, as stated in this <a href="https://developer.spotify.com/blog/2026-02-06-update-on-developer-access-and-platform-security">update on developer access and platform security</a>.</p>
 </Aside>
 
 ## How to get Spotify Data?

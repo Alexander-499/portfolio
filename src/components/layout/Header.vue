@@ -20,7 +20,7 @@ onMounted(() => {
 <template>
   <header id="header">
     <div v-if="isSuperheader" class="superheader">
-      <p>Zpeedometer &ndash; the app that shows speed, altitude, compass, speed warning and a lot more (really) &ndash; has released! <a href="https://play.google.com/store/apps/details?id=com.alexander499.zpeedometer">Check it out!</a></p>
+      <p>Zpeedometer &ndash; the app that shows speed, altitude, compass, speed warning and a lot more (really) &ndash; has released! <a href="https://play.google.com/store/apps/details?id=com.alexander499.zpeedometer" target="_blank">Check it out!</a></p>
       <button title="Hide" @click="hideSuperheader"><IconX/></button>
       <div class="zigzag"></div>
     </div>

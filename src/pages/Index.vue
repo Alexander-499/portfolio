@@ -9,7 +9,7 @@ import { t } from "@/scripts/i18n.js";
     <h1 class="emoji">🌆</h1>
     <h1 class="main-heading">
       <span class="tag">&lt;h1&gt;</span>
-      <span class="hey">Heyy, I'm Alexander</span>
+      <span class="hey">Hello, I'm Alexander</span>
       <span class="tag">&lt;/h1&gt;</span>
     </h1>
     <div class="divider"></div>
