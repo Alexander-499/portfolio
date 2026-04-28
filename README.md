@@ -1,5 +1,5 @@
 # Portfolio - alexander499.de
-This repository contains the source code for my personal portfolio website.
+This repository contains the source code for my personal portfolio website. :shipit:
 
 ## Usage Notice
 You are welcome to:

@@ -1,0 +1,80 @@
+/* Fonts: Inter, JetBrains Mono, Pacifico */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Pacifico&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  &::selection { background-color: hsl(from var(--color-accent-blue) h s l / 0.2); }
+}
+
+p { line-height: 1.4; }
+a { color: inherit; }
+img { width: 100%; }
+button { font-family: inherit; }
+
+:root {
+  --color-bg-primary: #111;
+  --color-bg-primary2: #181818;
+  --color-bg-secondary: #222;
+  --color-bg-tertiary: #333;
+  --color-bg-quaternary: #444;
+  --color-text-primary: white;
+  --color-text-secondary: #ccc;
+  --color-text-tertiary: #888;
+  --color-accent-red: crimson;
+  --color-accent-yellow: goldenrod;
+  --color-accent-green: limegreen;
+  --color-accent-blue: cornflowerblue;
+}
+
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+body, #app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: var(--color-text-primary);
+  background: var(--color-bg-primary);
+  font-family: Inter, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color-scheme: dark;
+}
+
+/* General Box */
+.gb, .gb-wrapper > * {
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg-secondary);
+  border: 1px hsla(from var(--color-bg-tertiary) h s l / 0.5) solid;
+  border-radius: 8px;
+  padding: 0 12px;
+  transition-duration: 200ms;
+  color-scheme: dark !important;
+}
+
+.heading-lines {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &::before, &::after {
+    height: 1px;
+    width: 80px;
+    position: absolute;
+    content: '';
+  }
+
+  &::before {
+    left: -100px;
+    background: linear-gradient(90deg, transparent, var(--color-text-tertiary));
+  }
+
+  &::after {
+    right: -100px;
+    background: linear-gradient(270deg, transparent, var(--color-text-tertiary));
+  }
+}
+
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 300ms; }

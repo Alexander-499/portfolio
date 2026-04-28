@@ -1,9 +1,0 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.parser]
-      tabWidth = 2
-  [markup.highlight]
-    codeFences = false

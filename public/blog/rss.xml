@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[Alexander499's Blog]]></title>
+        <description><![CDATA[Keep up-to-date on the latest blog posts from Alexander.]]></description>
+        <link>http://localhost:5173</link>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Fri, 24 Apr 2026 22:40:29 GMT</lastBuildDate>
+        <atom:link href="http://localhost:5173/blog/rss.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Fri, 24 Apr 2026 22:40:29 GMT</pubDate>
+        <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[How to display your Spotify Data on your Portfolio]]></title>
+            <description><![CDATA[How to get Spotify data? How to use and display it?]]></description>
+            <link>http://localhost:5173/blog/spotify-data-explanation</link>
+            <guid isPermaLink="false">http://localhost:5173/blog/spotify-data-explanation</guid>
+            <pubDate>Sun, 07 Sep 2025 00:00:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>
