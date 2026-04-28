@@ -107,7 +107,7 @@ header {
       bottom: -16px;
       height: 16px;
       width: 100%;
-      background-image: url("assets/images/superheader-zigzag.svg");
+      background-image: url("/assets/images/superheader-zigzag.svg");
       background-size: contain;
     }
   }
