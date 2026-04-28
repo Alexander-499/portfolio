@@ -45,6 +45,7 @@ defineProps({
     gap: 4px;
 
     strong { font-size: 22px; }
+    div:deep(p) { text-wrap: pretty; }
   }
 }
 
